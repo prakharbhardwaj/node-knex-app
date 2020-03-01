@@ -10,8 +10,9 @@ app.use(bodyParser.json())
 
 app.post('/createUser', (req, res) => {
     store
-      .createUser({
-          mobileNo: req.body.mobileNo
+        .createUser({
+          name: req.body.name,
+          contact : req.body.contact
       })
     .then(() => res.sendStatus(200))
 })
