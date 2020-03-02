@@ -6,5 +6,13 @@ module.exports = {
             name,
             contact
         })
+    },
+    authenticate({ contact }) {
+        console.log(`Authenticating user with contact ${contact}`)
+        return knex('user').where({ contact })
+            .then(([user]) => {
+                if (!user) return { success: false }
+                else return { success: true }
+        })
     }
 }

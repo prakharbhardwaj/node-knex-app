@@ -16,6 +16,17 @@ app.post('/createUser', (req, res) => {
       })
     .then(() => res.sendStatus(200))
 })
+
+app.post('/login', (req, res) => {
+    store
+        .authenticate({
+        contact : req.body.contact
+        })
+        .then(({ success }) => {
+            if (success) res.sendStatus(200)
+            else res.sendStatus(401)
+    })
+})
 app.listen(7555, () => {
     print('Server running on http://localhost:7555')
 })
