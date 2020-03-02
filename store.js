@@ -5,7 +5,7 @@ module.exports = {
         return knex('user').insert({
             name,
             contact
-        })
+        }).debug()
     },
     authenticate({ contact }) {
         console.log(`Authenticating user with contact ${contact}`)
